@@ -12,7 +12,7 @@ public class SeleniumConfig {
 
     public SeleniumConfig(String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath);
+            System.setProperty("webdriver.chrome.driver", seleniumProperties.getChromeDriverPath());
             this.driver = new ChromeDriver();
         }
 
