@@ -5,6 +5,7 @@ import com.sebfaull.seleniumFramework.Site.Pages.RegisterAdultOrChildPage;
 import com.sebfaull.seleniumFramework.Site.SeleniumConfig.SeleniumConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -34,9 +35,49 @@ public class RegisterPageStepDefs {
         registerPage.clickThirteenOrOverLink();
     }
 
-    @When("^I enter the \"(.*)\" of user DOB$")
+    @When("^I enter the day \"(.*)\" of user DOB$")
     public void iEnterTheDayOfUserDOB(String day) {
         registerPage.inputDayTextField(day);
+    }
+
+    @And("^I enter the month \"(.*)\" of user DOB$")
+    public void iEnterTheMonthOfUserDOB(String month) {
+        registerPage.inputMonthTextField(month);
+    }
+
+    @And("^I enter the year \"(.*)\" of user DOB$")
+    public void iEnterTheYearOfUserDOB(String year) {
+        registerPage.inputYearTextField(year);
+    }
+
+    @And("^I click submit")
+    public void iClickSubmit() {
+        registerPage.clickSubmitButton();
+    }
+
+    @And("^I enter email \"(.*)\" of user$")
+    public void iEnterEmailOfUser(String email) {
+        registerPage.inputEmailTextField(email);
+    }
+
+    @And("^I enter password \"(.*)\" of user$")
+    public void iEnterPasswordOfUser(String password) {
+        registerPage.inputPasswordTextField(password);
+    }
+
+    @And("^I enter postcode \"(.*)\" of user$")
+    public void iEnterPostcodeOfUser(String postcode) {
+        registerPage.inputPostcodeTextField(postcode);
+    }
+
+    @And("^I select gender \"(.*)\" of user$")
+    public void iSelectGenderOfUser(String gender) {
+        registerPage.selectGenderDropdown(gender);
+    }
+
+    @When("^I click opt out radio button$")
+    public void iClickOptOutRadioButton() {
+        registerPage.clickOptOutRadioButton();
     }
 
     @After("@RegisterPageTest")

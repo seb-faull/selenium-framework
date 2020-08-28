@@ -3,9 +3,9 @@ package com.sebfaull.seleniumFramework.Site.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegisterAdultOrChildPage {
@@ -60,31 +60,42 @@ public class RegisterAdultOrChildPage {
         findElement(dayTextField).sendKeys(day);
     }
 
-    public void clickMonthTextField() {
-        findElement(monthTextField).click();
+    public void inputMonthTextField(String month) {
+        findElement(monthTextField).sendKeys(month);
     }
 
-    public void clickYearTextField() {
-        findElement(yearTextField).click();
+    public void inputYearTextField(String year) {
+        findElement(yearTextField).sendKeys(year);
     }
 
-    public void clickEmailTextField() {
-        findElement(emailTextField).click();
+    public void inputEmailTextField(String email) {
+        findElement(emailTextField).sendKeys(email);
     }
 
-    public void clickPasswordTextField() {
-        findElement(passwordTextField).click();
+    public void inputPasswordTextField(String password) {
+        findElement(passwordTextField).sendKeys(password);
     }
 
-    public void clickPostcodeTextField() {
-        findElement(postcodeTextField).click();
+    public void inputPostcodeTextField(String postcode) {
+        findElement(postcodeTextField).sendKeys(postcode);
     }
 
-    public void clickGenderDropdown() {
-        findElement(genderDropdown).click();
+    public void selectGenderDropdown(String gender) {
+        Select dropdown = new Select(findElement(genderDropdown));
+        dropdown.selectByVisibleText(gender);
+    }
+
+    public void clickOptOutRadioButton() {
+        findElement(optOutRadioButton).click();
     }
 
     public void clickSubmitButton() {
+        try {
+            Thread.sleep(3000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         findElement(submitButton).click();
     }
 }
